@@ -1,0 +1,5 @@
+E:\proyectos_C#\AlmacenBasico\Negocio\bin\Debug\Negocio.dll
+E:\proyectos_C#\AlmacenBasico\Negocio\bin\Debug\Negocio.pdb
+E:\proyectos_C#\AlmacenBasico\Negocio\obj\Debug\Negocio.dll
+E:\proyectos_C#\AlmacenBasico\Negocio\obj\Debug\Negocio.pdb
+E:\proyectos_C#\AlmacenBasico\Negocio\obj\Debug\Negocio.csprojResolveAssemblyReference.cache

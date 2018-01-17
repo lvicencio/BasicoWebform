@@ -2,40 +2,213 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-    </div>
+   
 
     <div class="row">
-        <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
-            </p>
-            <p>
-                <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>
-                NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
-            </p>
-            <p>
-                <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>
-                You can easily find a web hosting company that offers the right mix of features and price for your applications.
-            </p>
-            <p>
-                <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
-            </p>
-        </div>
+        
+        
+        <form id="form1" runat="server">
+            <div>
+
+                <br />
+                <asp:Label ID="lblSaludo" runat="server"></asp:Label>
+                <br />
+
+                <br />
+                <asp:Button ID="btnNuevo" runat="server" Text="Nuevo" OnClick="btnNuevo_Click" />
+                &nbsp;&nbsp;
+        <asp:Button ID="btnListar" runat="server" Text="Listado" OnClick="btnListar_Click" />
+                &nbsp;&nbsp;
+        <asp:Button ID="Button4" runat="server" OnClick="Button4_Click" Text="Nuevo Usuario" />
+                <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Cerrar Session" />
+                <br />
+                <br />
+                <asp:TextBox ID="txtBuscar" runat="server"></asp:TextBox>
+                <asp:Button ID="btnBuscar" runat="server" OnClick="btnBuscar_Click" Text="Buscar" />
+                <br />
+                <br />
+                <asp:Panel ID="pnlBuscar" runat="server">
+                    Grid Buscar<br />
+                    <asp:GridView ID="gridBuscar" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" HorizontalAlign="Center">
+                        <FooterStyle BackColor="White" ForeColor="#000066" />
+                        <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
+                        <RowStyle ForeColor="#000066" />
+                        <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
+                        <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                        <SortedAscendingHeaderStyle BackColor="#007DBB" />
+                        <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                        <SortedDescendingHeaderStyle BackColor="#00547E" />
+                    </asp:GridView>
+                    <br />
+                </asp:Panel>
+                <br />
+                <br />
+                <br />
+                <asp:Panel ID="pnlListadoProductos" runat="server">
+                    <asp:GridView ID="GridListadoProducto" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="IdProducto" HorizontalAlign="Center" OnSelectedIndexChanged="GridListadoProducto_SelectedIndexChanged">
+                        <Columns>
+                            <asp:BoundField DataField="NombreProducto" HeaderText="Nombre" />
+                            <asp:BoundField DataField="Precio" HeaderText="Precio" />
+                            <asp:BoundField DataField="CantidadProducto" HeaderText="Cantidad" />
+                            <asp:BoundField DataField="DescripcionProducto" HeaderText="Descripción" />
+                            <asp:CommandField HeaderText="Opción" ShowSelectButton="True" />
+                        </Columns>
+                        <FooterStyle BackColor="White" ForeColor="#000066" />
+                        <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
+                        <RowStyle ForeColor="#000066" />
+                        <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
+                        <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                        <SortedAscendingHeaderStyle BackColor="#007DBB" />
+                        <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                        <SortedDescendingHeaderStyle BackColor="#00547E" />
+                    </asp:GridView>
+                </asp:Panel>
+                <br />
+                <asp:Panel ID="pnlIngresos" runat="server">
+                    <asp:Label ID="lblopcion" runat="server" Text="Ingresar Nuevo Producto"></asp:Label>
+                    <br />
+                    &nbsp;<table style="width: 100%;">
+                        <tr>
+                            <td class="auto-style2">Cantidad </td>
+                            <td class="auto-style4">
+                                <asp:TextBox ID="txtCantidad" runat="server"></asp:TextBox>
+                            </td>
+                            <td class="auto-style1"></td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style3">Nombre</td>
+                            <td class="auto-style7">
+                                <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style3">Descripcion</td>
+                            <td class="auto-style7">
+                                <asp:TextBox ID="txtDescripcion" runat="server"></asp:TextBox>
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style3">Precio</td>
+                            <td class="auto-style7">
+                                <asp:TextBox ID="txtPrecio" runat="server"></asp:TextBox>
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style3">
+                                <asp:Label ID="lblmsg" runat="server"></asp:Label>
+                            </td>
+                            <td class="auto-style7">&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="Button1_Click" />
+                            </td>
+                            <td class="auto-style7">
+                                <asp:Button ID="btnModificar" runat="server" OnClick="btnModificar_Click" Text="Modificar" />
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Button ID="btnBorrar" runat="server" OnClick="btnBorrar_Click" Text="Borrar" OnClientClick="return confirm('¿Desea Eliminar el Producto?');" />
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Button ID="Button2" runat="server" Text="Cancelar" />
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style3">&nbsp;</td>
+                            <td class="auto-style7">&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </table>
+                    <br />
+                    <br />
+                    <br />
+                </asp:Panel>
+                <br />
+                <br />
+                <br />
+                <br />
+                <asp:Panel ID="pnlUsuarios" runat="server">
+                    <asp:Label ID="Label1" runat="server" Text="Formulario Ingreso de Usuarios"></asp:Label>
+                    <br />
+                    <br />
+                    <table style="width: 100%;">
+                        <tr>
+                            <td class="auto-style9">
+                                <asp:Label ID="Label2" runat="server" Text="Nombre"></asp:Label>
+                            </td>
+                            <td class="auto-style8">
+                                <asp:TextBox ID="txtNombreUsuario" runat="server"></asp:TextBox>
+                            </td>
+                            <td class="auto-style8"></td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style9">
+                                <asp:Label ID="Label3" runat="server" Text="Apellido"></asp:Label>
+                            </td>
+                            <td class="auto-style8">
+                                <asp:TextBox ID="txtApellidoUsuario" runat="server"></asp:TextBox>
+                            </td>
+                            <td class="auto-style8"></td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style10">
+                                <asp:Label ID="Label4" runat="server" Text="UserName"></asp:Label>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style10">
+                                <asp:Label ID="Label5" runat="server" Text="Password"></asp:Label>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtPassUser" runat="server"></asp:TextBox>
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style10">
+                                <asp:Label ID="Label6" runat="server" Text="Codigo de Rol"></asp:Label>
+                            </td>
+                            <td>
+                                <asp:DropDownList ID="dropRol" runat="server">
+                                    <asp:ListItem Value="0">Seleccione</asp:ListItem>
+                                    <asp:ListItem Value="1">Administrador</asp:ListItem>
+                                    <asp:ListItem Value="2">Usuario</asp:ListItem>
+                                </asp:DropDownList>
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style10">
+                                <asp:Label ID="lblMsgError" runat="server"></asp:Label>
+                            </td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style10">&nbsp;</td>
+                            <td>
+                                <asp:Button ID="btnGuardarUsuario" runat="server" OnClick="Button5_Click" Text="Ingresar Usuario" />
+                                &nbsp;&nbsp;&nbsp;
+                        <asp:Button ID="Button5" runat="server" OnClick="Button5_Click1" Text="Cancelar" />
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </table>
+                </asp:Panel>
+                <br />
+                <asp:SqlDataSource ID="cadena" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Producto]"></asp:SqlDataSource>
+            </div>
+    </form>
+
+
     </div>
 </asp:Content>
